@@ -2,7 +2,7 @@
     package="vn.thinhnguyen.demo_domesco">
 
     <application
-        android:label="CRM Domesco"
+        android:label="DMS Domesco"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
