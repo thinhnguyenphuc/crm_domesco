@@ -4,8 +4,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  late final TextEditingController usernameController;
+  late final TextEditingController passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+    usernameController = TextEditingController();
+    passwordController = TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +51,23 @@ class LoginPage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20.h),
-            const InputField(
-                hint: "Tên đăng nhập", iconData: CupertinoIcons.person),
-            const InputField(
-                hint: "Mật khẩu", iconData: Icons.lock, isPasswordField: true),
+            InputField(
+                hint: "Tên đăng nhập",
+                iconData: CupertinoIcons.person,
+                textEditingController: usernameController),
+            InputField(
+                hint: "Mật khẩu",
+                iconData: Icons.lock,
+                isPasswordField: true,
+                textEditingController: passwordController),
             forgotPassword(),
-            const LoginButton(title: "Đăng nhập", color: Colors.blue),
+            LoginButton(
+                title: "Đăng nhập",
+                color: Colors.blue,
+                callback: () {
+                  print(usernameController.text);
+                  print(passwordController.text);
+                }),
             socialLoginButton(),
           ],
         ),

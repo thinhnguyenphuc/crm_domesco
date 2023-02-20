@@ -4,15 +4,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class LoginButton extends StatelessWidget {
   final String title;
   final Color color;
+  final Function() callback;
 
-  const LoginButton({super.key, required this.title, required this.color});
+  const LoginButton(
+      {super.key,
+      required this.title,
+      required this.color,
+      required this.callback});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 32.w),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: callback,
         style: ButtonStyle(
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
