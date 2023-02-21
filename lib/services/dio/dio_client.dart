@@ -18,7 +18,8 @@ class DioClient {
     }
   }
 
-  static Future<Map<dynamic, dynamic>?> post(String subDomain, Map<String, String> data) async {
+  static Future<Map<dynamic, dynamic>?> post(
+      String subDomain, Map<String, String> data) async {
     try {
       Response response = await (await _getClient()).post(
           "${Config.serverName}/$subDomain/",
@@ -33,16 +34,17 @@ class DioClient {
     }
   }
 
-  static Future<void> get(String subDomain) async {
+  static Future<List<dynamic>?> get(String subDomain) async {
     try {
-      var tmp = await (await _getClient()).get(
+      var response = await (await _getClient()).get(
           "${Config.serverName}/$subDomain/",
           options: Options(contentType: "application/json"));
-      print(tmp);
+      return response.data;
     } catch (e) {
       if (kDebugMode) {
         print(e);
       }
+      return null;
     }
   }
 }

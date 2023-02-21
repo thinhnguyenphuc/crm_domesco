@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 
 class AuthState extends Equatable {
   @override
@@ -7,13 +8,15 @@ class AuthState extends Equatable {
 
 class Login extends AuthState {
   @override
-  List<Object> get props => [];
+  List<Object> get props => [UniqueKey()];
 }
 
 class UnLogin extends AuthState {
-  final bool hasClickLogin;
-
-  UnLogin(this.hasClickLogin);
   @override
-  List<Object> get props => [hasClickLogin];
+  List<Object> get props => [UniqueKey()];
+}
+
+class LoginFailed extends AuthState {
+  @override
+  List<Object> get props => [UniqueKey()];
 }

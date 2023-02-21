@@ -43,6 +43,10 @@ dependencies:
   equatable: ^2.0.5
   dio: ^5.0.0
   crypto: ^3.0.2
+  fluttertoast: ^8.2.1
+  hive_flutter: ^1.1.0
+  persistent_bottom_nav_bar: ^5.0.2
+  dropdown_button2: ^1.9.3
 
 dev_dependencies:
   flutter_test:
