@@ -11,6 +11,9 @@ class Login extends AuthState {
 }
 
 class UnLogin extends AuthState {
+  final bool hasClickLogin;
+
+  UnLogin(this.hasClickLogin);
   @override
-  List<Object> get props => [];
+  List<Object> get props => [hasClickLogin];
 }
