@@ -1,6 +1,7 @@
 import 'package:demo_domesco/blocs/departments/department_cubit.dart';
 import 'package:demo_domesco/blocs/departments/department_state.dart';
 import 'package:demo_domesco/models/department/department.dart';
+import 'package:demo_domesco/utils/date_time_picker.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,6 +45,19 @@ class _SingleReportState extends State<SingleReport> {
               }
               return Container();
             }),
+        TextButton(
+          onPressed: () async {
+            DateTime tmp = DateTime.now();
+            tmp = await DateTimePicker.showDateTimePicker(
+                context, DateTime.now(), () {
+              print(tmp);
+              Navigator.of(context,
+                  rootNavigator: true)
+                  .pop("Discard");
+            });
+          },
+          child: Text("aaa"),
+        )
       ],
     ));
   }
